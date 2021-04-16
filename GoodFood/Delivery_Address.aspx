@@ -1,0 +1,102 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Delivery_Address.aspx.cs" Inherits="GoodFood.Delivery_Address" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <%-- title --%>
+     <div class="row">
+         <div class="col-md-4">
+             <span style="font-size: xx-large;font-weight: 700;">Delivery Address Table</span>
+         </div>
+    </div>
+
+    <%-- sub title --%>
+    <div class="row">
+        <div class="col-md-4">
+            <span style="font-size: medium">View, update and delete delivery addresses</span>
+        </div>
+    </div>
+    <br />
+
+    <%-- delivery address --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Label ID="Label1" runat="server" Text="Delivery Point"></asp:Label>
+        </div>
+    </div>
+
+    <%-- delivery address text field --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:TextBox class="textbox" ID="pointTxt" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Height="25px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="pointTxt" ErrorMessage="address cannot be empty" ForeColor="Red" style="font-size: smaller" ValidationGroup="addressGroup"></asp:RequiredFieldValidator><%-- empty field validation --%>
+        </div>
+    </div>
+
+    <%-- expression validation --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="invalid input" ControlToValidate="pointTxt" ForeColor="Red" style="font-size: smaller" ValidationGroup="addressGroup" ValidationExpression="^([a-zA-Z]+\s*)+$"></asp:RegularExpressionValidator>
+        </div>
+    </div>
+
+
+    <%-- longitude --%>    
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Label ID="Label2" runat="server" Text="Longitude"></asp:Label>
+        </div>
+    </div>
+
+    <%-- longitude text field --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:TextBox class="textbox" ID="longitudeTxt" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Height="25px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="longitudeTxt" ErrorMessage="longitude cannot be empty" ForeColor="Red" style="font-size: smaller" ValidationGroup="addressGroup"></asp:RequiredFieldValidator><%-- empty field validation --%>
+        </div>
+    </div>
+
+    <%-- expression validation --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="invalid input" ControlToValidate="longitudeTxt" ForeColor="Red" ValidationGroup="addressGroup" ValidationExpression="^[0-9]+[.]+[0-9]+$" style="font-size: smaller"></asp:RegularExpressionValidator>
+        </div>
+    </div>
+
+    <%-- latitude --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Label ID="Label3" runat="server" Text="Latitude"></asp:Label>
+        </div>
+    </div>
+
+    <%-- latitude text field --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:TextBox class="textbox" ID="latitudeTxt" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Height="25px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="latitudeTxt" ErrorMessage="latitude cannot be empty" ForeColor="Red" style="font-size: smaller" ValidationGroup="addressGroup"></asp:RequiredFieldValidator><%-- empty field validation--%>
+        </div>
+    </div>
+
+    <%-- regular expression validation --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="invalid input" ControlToValidate="latitudeTxt" ForeColor="Red" style="font-size: smaller" ValidationGroup="addressGroup" ValidationExpression="^[0-9]+[.]+[0-9]+$"></asp:RegularExpressionValidator>
+        </div>
+    </div>
+
+    <%-- insert button --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Button class="button" ID="insertBtn" runat="server" Text="Insert" OnClick="insertBtn_Click" BackColor="#1877F2" BorderColor="#1877F2" BorderStyle="None" ForeColor="White" ValidationGroup="addressGroup" />
+        </div>
+    </div>
+    <br />
+        
+    <%-- grid view --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:GridView cellpadding="8" ID="GridViewAddress" runat="server" DataKeyNames="Delivery_Address_ID" OnRowDataBound="OnRowDataBound" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added." AutoGenerateEditButton="true" AutoGenerateDeleteButton="true" Font-Size="Medium" Width="1094px" BorderColor="#CCCCCC" BorderStyle="Solid">
+            </asp:GridView>
+        </div>
+    </div>
+</asp:Content>

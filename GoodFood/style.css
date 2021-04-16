@@ -1,0 +1,22 @@
+﻿.labels {
+    margin-left:1%;
+    font-family:Calibri;
+    font-size:16px;
+}
+.textboxfield {
+    margin-left: 1%;
+    width: 414px;
+}
+
+.textbox {
+    border-radius: 5px 5px;
+    }
+
+.button {
+    border-radius: 5px 5px;
+    width: 120px;
+    height: 30px;
+    font-family:Calibri;
+    font-size: 15px; 
+    color: white;
+}

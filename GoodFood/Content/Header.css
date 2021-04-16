@@ -1,0 +1,67 @@
+﻿<header id="header-nav" >
+
+<div class="nav-bar" >
+<a href="#" > <img src="assets/images/cosmetics.png" alt="ekata" class="logo" > </a >
+<div class="main-nav" >
+<a href="#" > Home</a >
+<a href="pages/cv.html" > My CV</a >
+<a href="pages/blog.html" > Blog</a >
+<a href="pages/research.html" > Research</a >
+<a href="pages/contact.html" > Contact</a >
+</div >
+</div >
+
+</header >
+
+#header-nav {
+    padding: 1.5em 0;
+    transition: .2s;
+}
+
+/*--------------styling navigation bar-----------------------*/
+header .nav-bar {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    /*padding: 1.5em 0;*/
+    /* displays the nav-bar and logo in same line*/
+    justify-content: space-between;
+    /*creates a space between logo and nav-bar*/
+    align-items: center;
+    /*center with respect to height*/
+}
+
+
+/*..............logo on the left side of navigation bar-------------*/
+.logo {
+    height: 60px;
+    transition: .2s;
+}
+
+
+    /*...........hover effect in the logo--------------------*/
+    .logo:hover {
+        opacity: 0.5;
+    }
+
+.main-nav {
+
+    background-color: #232323;
+}
+
+
+/*-----------the actual navigation bar which contains home, contact, cv, etc------*/
+.main-nav a {
+    padding-left: 3rem;
+    /*space on the left between each element in the main nav-bar*/
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: #232323;
+}
+
+    .main-nav a:hover {
+        font-weight: 800;
+
+    }

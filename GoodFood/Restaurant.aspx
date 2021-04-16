@@ -1,0 +1,109 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Restaurant.aspx.cs" Inherits="GoodFood.Restaurant" %>
+
+<asp:content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <%-- title --%>
+     <div class="row">
+         <div class="col-md-4">
+             <span style="font-size: xx-large;font-weight: 700;">Restaurant Table</span>
+         </div>
+    </div>
+
+    <%-- sub title --%>
+    <div class="row">
+        <div class="col-md-4">
+            <span style="font-size: medium">View, update and delete restaurants</span>
+        </div>
+    </div>
+    <br />
+
+
+    <%-- restaurant name --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Label ID="nameLbl" runat="server" Text="Restaurant Name"></asp:Label>
+        </div>
+    </div>
+
+    <%-- restaurant name textfield --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:TextBox ID="nameTxt" class="textbox" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Height="25px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="nameTxt" ErrorMessage="name cannot be empty" ForeColor="Red" style="font-size: smaller" ValidationGroup="group"></asp:RequiredFieldValidator><%-- empty field validation --%>
+        </div>
+    </div>
+
+
+    <%-- expression validator for name --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="invalid input" ControlToValidate="nameTxt" ForeColor="Red" style="font-size: smaller" ValidationGroup="group" ValidationExpression="^([a-zA-Z]+\s*)+$"></asp:RegularExpressionValidator>
+        </div>
+    </div>
+
+    
+    <%-- restaurant address --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Label ID="addressLbl" runat="server" Text="Restaurant Address"></asp:Label>        
+        </div>
+    </div>
+
+    <%-- restaurant address textfield --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:TextBox ID="addressTxt" class="textbox" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Height="25px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="addressTxt" ErrorMessage="address cannot be empty" ForeColor="Red" style="font-size: smaller" ValidationGroup="group"></asp:RequiredFieldValidator><%-- empty field validation --%>
+        </div>
+    </div>
+
+    <%-- required expression validator --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="invalid input" ControlToValidate="addressTxt" ForeColor="Red" style="font-size: smaller" ValidationGroup="group" ValidationExpression="^([a-zA-Z]+\s*)+$"></asp:RegularExpressionValidator>
+        </div>
+    </div>
+
+    
+    <%-- controls for restaurant contact --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Label ID="contactLbl" runat="server" Text="Restaurant Contact"></asp:Label>
+        </div>
+    </div>
+
+
+    <%-- restaurant contact textfield --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:TextBox ID="contactTxt" class="textbox" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Height="25px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="contactTxt" ErrorMessage="contact cannot be null" ForeColor="Red" style="font-size: smaller" ValidationGroup="group"></asp:RequiredFieldValidator><%-- empty field validation --%>
+        </div>
+    </div>
+
+
+    <%-- required expression validator--%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="invalid input" ControlToValidate="contactTxt" ForeColor="Red" style="font-size: smaller" ValidationGroup="group" ValidationExpression="^[0-9]{7}$"></asp:RegularExpressionValidator>
+        </div>
+    </div>
+         
+
+    <%-- insert button --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:Button ID="insertBtn" class="button" runat="server" Text="Insert" OnClick="insertBtn_Click" BackColor="#1877F2" BorderColor="#1877F2" ForeColor="White" BorderStyle="None" ValidationGroup="group" />
+        </div>
+    </div>
+    <br />
+
+    <%-- grid view --%>
+    <div class="row">
+        <div class="col-md-4">
+            <asp:GridView cellpadding="10" ID="GridViewRestaurant" runat="server" DataKeyNames="Restaurants_ID" OnRowDataBound="OnRowDataBound" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnRowUpdating="OnRowUpdating" OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added." AutoGenerateEditButton="true" AutoGenerateDeleteButton="true" Width="1094px" Font-Size="Medium" BorderColor="#CCCCCC" BorderStyle="Solid">
+            </asp:GridView>
+        </div>
+    </div>
+</asp:content>
+
